@@ -3,7 +3,7 @@ import './App.css';
 import MainContainer from '../containers/MainContainer';
 import HourlyContainer from '../containers/HourlyContainer';
 import api from '../api';
-const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo29november.json';
+const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo1december.json';
 
 class App extends Component {
   constructor() {

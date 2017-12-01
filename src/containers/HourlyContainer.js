@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hourly from '../components/Hourly';
+import HourlyImages from '../components/HourlyImages';
 import Chart from 'chart.js';
 import HourlyChartConfig from './HourlyChartConfig';
 
@@ -48,6 +49,13 @@ class HourlyContainer extends Component {
     return(
       <Hourly>
         <canvas ref="hourlyCanvas" width={300} height={300} />
+        { this.props.hourly.map((hour, index) => (
+          <HourlyImages
+            key={index}
+            src={`https://s3-ap-southeast-1.amazonaws.com/acbw/assets/weather_icons/${hour.icon}.svg`}
+            alt={hour.icon}
+            style={{left: String(61.7*index)+"px"}} />
+        )) }
       </Hourly>
     )
   }
