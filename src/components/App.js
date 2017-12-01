@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MainContainer from '../containers/MainContainer';
+import HourlyContainer from '../containers/HourlyContainer';
 import api from '../api';
 const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo29november.json';
 
@@ -36,9 +37,14 @@ class App extends Component {
         windowWidth={this.state.windowWidth}
         currently={this.state.weatherData.currently}
         today={this.state.weatherData.daily.data[0]} /> : "" );
+    const hourly = (
+      this.state.weatherData ?
+      <HourlyContainer hourly={this.state.weatherData.hourly.data} /> : ""
+    );
     return (
       <div className="App">
         {main}
+        {hourly}
       </div>
     );
   }

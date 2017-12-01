@@ -1,0 +1,11 @@
+.hourly-wrap {
+  overflow-x: scroll;
+  background-color: #30385d;
+  height: 232px;
+}
+.hourly-chart {
+  position: relative;
+  width: 3000px;
+  height: calc(100% - 32px);
+  margin-top: 16px;
+}
