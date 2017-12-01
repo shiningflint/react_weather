@@ -15,6 +15,7 @@ export default (params) => {
       ],
     },
     options: {
+      events: [],
       responsive: true,
       maintainAspectRatio: false,
       legend: { display: false },
