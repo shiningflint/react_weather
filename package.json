@@ -2,8 +2,10 @@
   "name": "weather",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://playground.acbw.me/react/weather",
   "dependencies": {
     "axios": "^0.17.1",
+    "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17"

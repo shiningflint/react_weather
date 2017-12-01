@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainWindow.css';
+import PropTypes from 'prop-types';
 
 const MainWindow = (props) => {
   const mainStyle = {
@@ -15,7 +16,7 @@ const MainWindow = (props) => {
           <span className="main-window__text2">Tokyo, Japan</span>
         </p>
         <p className="main-window__item-degrees">
-          {Math.round(props.temperature)}
+          {Math.round(props.temperature)}&deg;
         </p>
         <p className="main-window__item-below">
           Day {Math.round(props.tempHigh)}&deg;&uarr; Night {Math.round(props.tempLow)}&deg;&darr;
@@ -23,5 +24,15 @@ const MainWindow = (props) => {
       </div>
     </div>
 )};
+
+MainWindow.propTypes = {
+  height: PropTypes.number.isRequired,
+  opacity: PropTypes.string.isRequired,
+  bgurl: PropTypes.string.isRequired,
+  temperature: PropTypes.number.isRequired,
+  summary: PropTypes.string.isRequired,
+  tempHigh: PropTypes.number.isRequired,
+  tempLow: PropTypes.number.isRequired,
+}
 
 export default MainWindow;

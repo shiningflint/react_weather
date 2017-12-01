@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import logo from './images/puff.svg';
 import './App.css';
 import MainContainer from '../containers/MainContainer';
 import api from '../api';
-const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo_weather.json';
+const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo29november.json';
 
 class App extends Component {
   constructor() {
