@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import MainContainer from '../containers/MainContainer';
 import HourlyContainer from '../containers/HourlyContainer';
-import api from '../api';
-const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo1december.json';
+import DailyContainer from '../containers/DailyContainer';
+import api from '../utilities/api';
+const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo4december.json';
 
 class App extends Component {
   constructor() {
@@ -37,14 +38,17 @@ class App extends Component {
         windowWidth={this.state.windowWidth}
         currently={this.state.weatherData.currently}
         today={this.state.weatherData.daily.data[0]} /> : "" );
-    const hourly = (
-      this.state.weatherData ?
+    const hourly = (this.state.weatherData ?
       <HourlyContainer hourly={this.state.weatherData.hourly.data} /> : ""
+    );
+    const daily = (this.state.weatherData ?
+      <DailyContainer daily={this.state.weatherData.daily.data} /> : ""
     );
     return (
       <div className="App">
         {main}
         {hourly}
+        {daily}
       </div>
     );
   }

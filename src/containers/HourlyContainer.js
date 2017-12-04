@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Hourly from '../components/Hourly';
 import HourlyImages from '../components/HourlyImages';
-import api from '../api';
+import timeFormat from '../utilities/timeFormat';
+import api from '../utilities/api';
 import HourlyChartConfig from './HourlyChartConfig';
 
 class HourlyContainer extends Component {
@@ -24,14 +25,8 @@ class HourlyContainer extends Component {
   getHourLabels(hourlyData) {
     if ('time' in hourlyData[0]) {
       return hourlyData.map(hour => {
-        const utcSeconds = hour.time;
-        const d = new Date(0);
-        d.setUTCSeconds(utcSeconds);
-        if (d.getHours() < 10) {
-          return "0"+d.getHours().toString()+":00";
-        } else {
-          return d.getHours().toString()+":00";
-        }
+        const d = timeFormat.unixToUTC(hour.time);
+        return timeFormat.format24h(d);
       });
     }
   }
