@@ -4,7 +4,7 @@ import MainContainer from '../containers/MainContainer';
 import HourlyContainer from '../containers/HourlyContainer';
 import DailyContainer from '../containers/DailyContainer';
 import api from '../utilities/api';
-const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo4december.json';
+const jsonurl = 'https://acbw-api-proxy.herokuapp.com/';
 
 class App extends Component {
   constructor() {
