@@ -1,0 +1,9 @@
+.dark-sky {
+  background-color: #30385d;
+  color: #7780ad;
+  padding: 16px;
+}
+.dark-sky__link {
+  color: #babece;
+  text-decoration: none;
+}

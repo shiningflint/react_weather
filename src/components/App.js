@@ -3,8 +3,10 @@ import './App.css';
 import MainContainer from '../containers/MainContainer';
 import HourlyContainer from '../containers/HourlyContainer';
 import DailyContainer from '../containers/DailyContainer';
+import DarkSky from './DarkSky';
 import api from '../utilities/api';
 const jsonurl = 'https://acbw-api-proxy.herokuapp.com/';
+const maxheight = 500;
 
 class App extends Component {
   constructor() {
@@ -26,8 +28,9 @@ class App extends Component {
   }
 
   setWindowSize() {
+    const mainWindowHeight = (window.innerWidth > maxheight ? maxheight : window.innerWidth);
     this.setState({
-      windowWidth: window.innerWidth,
+      windowWidth: mainWindowHeight,
       windowHeight: window.innerHeight,
     });
   }
@@ -49,6 +52,7 @@ class App extends Component {
         {main}
         {hourly}
         {daily}
+        <DarkSky url="https://darksky.net/poweredby/" text="Weather data from " linkText="Dark Sky" />
       </div>
     );
   }
