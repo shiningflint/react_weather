@@ -14,9 +14,21 @@ class DailyContainer extends Component {
     return result;
   }
 
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll(e) {
+    console.log(this.refs.dailyWrapElm);
+  }
+
   render() {
     return (
-      <Daily>
+      <Daily dailyRef={ el => this.dailyWrapElm = el }>
         {this.props.daily.map(day => {
           const d = timeFormat.unixToUTC(day.time);
           const sunriseTime = timeFormat.unixToUTC(day.sunriseTime);

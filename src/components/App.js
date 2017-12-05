@@ -5,7 +5,8 @@ import HourlyContainer from '../containers/HourlyContainer';
 import DailyContainer from '../containers/DailyContainer';
 import DarkSky from './DarkSky';
 import api from '../utilities/api';
-const jsonurl = 'https://acbw-api-proxy.herokuapp.com/';
+// const jsonurl = 'https://acbw-api-proxy.herokuapp.com/';
+const jsonurl = 'https://s3-ap-southeast-1.amazonaws.com/acbw/tokyo4december.json';
 const maxheight = 500;
 
 class App extends Component {
