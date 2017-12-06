@@ -11,7 +11,7 @@ class HourlyContainer extends Component {
   }
 
   loadChart(hourlyData) {
-    const ctx = this.refs.hourlyCanvas.getContext('2d');
+    const ctx = this.hourlyCanvas.getContext('2d');
     const hourParams = {
       labels: this.getHourLabels(hourlyData),
       temperatures: this.getHourTemperatures(hourlyData),
@@ -42,7 +42,7 @@ class HourlyContainer extends Component {
   render() {
     return(
       <Hourly>
-        <canvas ref="hourlyCanvas" width={300} height={300} />
+        <canvas ref={ elm => this.hourlyCanvas = elm } width={300} height={300} />
         { this.props.hourly.map((hour, index) => (
           <HourlyImages
             key={index}

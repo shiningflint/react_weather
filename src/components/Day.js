@@ -1,37 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Day.css';
 
-const Day = props => {
-  return (
-    <li className="daily-item">
-      <div className="daily-mainwrap">
-        <div className="daily-summary">
-          <p className="daily-dayinfo">{props.day}</p>
-          <p className="daily-summaryinfo">{props.summary}</p>
+class Day extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      active: "",
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps.animationShow);
+    if (newProps.animationShow === true) {
+      console.log(newProps.timeout);
+      setTimeout(() => {
+        this.setState({ active: "active" });
+      }, newProps.timeout);
+    }
+  }
+
+  render() {
+    return(
+      <li className={("daily-item "+this.state.active)}>
+        <div className="daily-mainwrap">
+          <div className="daily-summary">
+            <p className="daily-dayinfo">{this.props.day}</p>
+            <p className="daily-summaryinfo">{this.props.summary}</p>
+          </div>
+          <div className="daily-icon">
+            <img
+              src={this.props.icon}
+              className="daily-img"
+              alt="Day icon" />
+          </div>
+          <div className="daily-highlow">
+            <p>{this.props.max}&deg;&uarr;</p>
+            <p>{this.props.min}&deg;&darr;</p>
+          </div>
         </div>
-        <div className="daily-icon">
-          <img
-            src={props.icon}
-            className="daily-img"
-            alt="Day icon" />
+        <div className="daily-sunwrap">
+          <div className="daily-sunitem">
+            <img className="daily-sun__img" src={this.props.sunriseIcon} alt={"Sunrise "+this.props.day} />
+            <span>{this.props.sunriseTime}</span>
+          </div>
+          <div className="daily-sunitem">
+            <img className="daily-sun__img" src={this.props.sunsetIcon} alt={"Sunset "+this.props.day} />
+            <span>{this.props.sunsetTime}</span>
+          </div>
         </div>
-        <div className="daily-highlow">
-          <p>{props.max}&deg;&uarr;</p>
-          <p>{props.min}&deg;&darr;</p>
-        </div>
-      </div>
-      <div className="daily-sunwrap">
-        <div className="daily-sunitem">
-          <img className="daily-sun__img" src={props.sunriseIcon} alt={"Sunrise "+props.day} />
-          <span>{props.sunriseTime}</span>
-        </div>
-        <div className="daily-sunitem">
-          <img className="daily-sun__img" src={props.sunsetIcon} alt={"Sunset "+props.day} />
-          <span>{props.sunsetTime}</span>
-        </div>
-      </div>
-    </li>
-  );
-};
+      </li>
+    );
+  }
+}
 
 export default Day

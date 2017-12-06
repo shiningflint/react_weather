@@ -6,10 +6,12 @@
   "dependencies": {
     "axios": "^0.17.1",
     "chart.js": "^2.7.1",
+    "lodash.throttle": "^4.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-transition-group": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

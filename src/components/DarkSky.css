@@ -2,8 +2,12 @@
   background-color: #30385d;
   color: #7780ad;
   padding: 16px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
 }
 .dark-sky__link {
   color: #babece;
   text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
 }

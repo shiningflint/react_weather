@@ -3,6 +3,11 @@
   padding-bottom: 4px;
   border-bottom: 1px solid #40486b;
   color: #7780ad;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.daily-item.active {
+  opacity: 1;
 }
 .daily-item:last-child {
   margin-bottom: 0;
