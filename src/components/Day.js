@@ -10,9 +10,7 @@ class Day extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps.animationShow);
     if (newProps.animationShow === true) {
-      console.log(newProps.timeout);
       setTimeout(() => {
         this.setState({ active: "active" });
       }, newProps.timeout);
