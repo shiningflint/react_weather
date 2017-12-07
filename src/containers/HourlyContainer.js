@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Hourly from '../components/Hourly';
 import HourlyImages from '../components/HourlyImages';
 import timeFormat from '../utilities/timeFormat';
-import api from '../utilities/api';
+import { drawChart } from '../utilities/api';
 import HourlyChartConfig from './HourlyChartConfig';
 
 class HourlyContainer extends Component {
@@ -19,7 +19,7 @@ class HourlyContainer extends Component {
     hourParams.maxTemp = Math.max.apply(null, hourParams.temperatures);
     hourParams.minTemp = Math.min.apply(null, hourParams.temperatures);
     const config = HourlyChartConfig(hourParams);
-    return api.drawChart(ctx, config);
+    return drawChart(ctx, config);
   }
 
   getHourLabels(hourlyData) {

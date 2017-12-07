@@ -4,7 +4,7 @@ import MainContainer from '../containers/MainContainer';
 import HourlyContainer from '../containers/HourlyContainer';
 import DailyContainer from '../containers/DailyContainer';
 import DarkSky from './DarkSky';
-import api from '../utilities/api';
+import { fetchWeather } from '../utilities/api';
 const jsonurl = 'https://acbw-api-proxy.herokuapp.com/';
 const maxheight = 500;
 
@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     this.setWindowSize();
-    api.fetchWeather(jsonurl)
+    fetchWeather(jsonurl)
       .then(response => {
         this.setState({ weatherData: response.data });
       })
