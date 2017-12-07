@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setWindowSize();
+    this.setMainWindowSize();
     fetchWeather(jsonurl)
       .then(response => {
         this.setState({ weatherData: response.data });
@@ -27,7 +27,7 @@ class App extends Component {
       .catch(error => (console.log(error)));
   }
 
-  setWindowSize() {
+  setMainWindowSize() {
     const mainWindowHeight = (window.innerWidth > maxheight ? maxheight : window.innerWidth);
     this.setState({
       windowWidth: mainWindowHeight,
@@ -36,11 +36,12 @@ class App extends Component {
   }
 
   render() {
-    const main = (this.state.weatherData ?
-      <MainContainer
-        windowWidth={this.state.windowWidth}
-        currently={this.state.weatherData.currently}
-        today={this.state.weatherData.daily.data[0]} /> : "" );
+    const main = this.state.weatherData
+      ? <MainContainer
+          windowWidth={this.state.windowWidth}
+          currently={this.state.weatherData.currently}
+          today={this.state.weatherData.daily.data[0]} />
+      : "";
     const hourly = (this.state.weatherData ?
       <HourlyContainer hourly={this.state.weatherData.hourly.data} /> : ""
     );
